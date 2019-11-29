@@ -2,11 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { JwtInterceptor } from './shared/authentication/jwt.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './register/register.component';
 import { CalendarModule } from 'primeng/calendar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -15,12 +12,13 @@ import { HomeComponent } from './home/home.component';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/components/common/messageservice';
+import { AuthModule } from './auth/auth.module';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
-    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -28,14 +26,15 @@ import { MessageService } from 'primeng/components/common/messageservice';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AuthModule.forRoot(),
     AppRoutingModule,
     CalendarModule,
     AutoCompleteModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    AkitaNgDevtools.forRoot(),
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     MessageService
   ],
   bootstrap: [AppComponent]
