@@ -23,7 +23,7 @@ const routes: Routes = [
         component: ProductsComponent
       }]
   },
-  { path: '**', redirectTo: '/home' }
+  { path: '**', redirectTo: '/home/products' }
 ];
 
 

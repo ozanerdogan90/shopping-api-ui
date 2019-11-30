@@ -4,7 +4,7 @@ import { map, catchError } from 'rxjs/operators';
 import { of, Observable, throwError } from 'rxjs';
 import { AuthStore, User } from './auth.store';
 
-export interface Creds { password: string; username: string; }
+export interface Creds { password: string; name: string; }
 
 @Injectable()
 export class AuthService {
@@ -39,15 +39,15 @@ export class AuthService {
         this.router.navigate(['/login']);
     }
 
-    private checkUser({ username, password }: Creds): Observable<User> {
-        if (username !== 'test') {
+    private checkUser(cred: Creds): Observable<User> {
+        if (cred.name !== 'test') {
             return throwError('Invalid username or password');
         }
 
-        return of({ name: username });
+        return of({ name: cred.name });
     }
 
     private addUser(user: Creds): Observable<User> {
-        return of({ name: user.username });
+        return of({ name: user.name });
     }
 }

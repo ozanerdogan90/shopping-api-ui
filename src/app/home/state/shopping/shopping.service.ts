@@ -11,18 +11,19 @@ export class ShoppingService {
     }
 
     create() {
-        const cart = {} as ShoppingCart;
+        let cart = {} as ShoppingCart;
         cart.id = uuid();
         cart.products = [];
         localStorage.setItem('shoppingCart', JSON.stringify(cart));
         this.store.update({ shoppingCart: cart });
+        return cart;
     }
 
     update(newProduct: Product) {
         this.store.setState((state: ShoppingState) => {
-            const cart: ShoppingCart = { ...state.shoppingCart };
+            let cart: ShoppingCart = { ...state.shoppingCart };
             if (!cart || !cart.id) {
-                this.create();
+                cart = Object.assign({}, this.create());
             }
 
             let productToUpdate: Product = cart.products.find(_product => _product.id === newProduct.id);
