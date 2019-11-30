@@ -1,11 +1,42 @@
-<div class="cart-container">
-    <ng-template *ngIf='(cart$ | async) as cart;else :noCart'>
-    </ng-template>
-    <ng-template #noCart>
-        <div class="no-cart">
-            Your cart is empty start adding by <a [routerLink]="['/home/products']">here</a>
-        </div>
-    </ng-template>
-
-
-</div>
+<table class="tbl table" *ngIf='(prd$ | async) as products; else '>
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Base Price</th>
+        <th>Total Price</th>
+    </tr>
+    <tr *ngFor='let product of products'>
+        <td>
+            <img src="../../../assets/no-image.jpg" width="50px" />
+        </td>
+        <td>
+            {{product.name}}
+        </td>
+        <td>
+            {{product.quantity}}
+        </td>
+        <td>
+            {{product.price}} {{product.priceCurrency}}
+        </td>
+        <td>
+            <b>{{product.price * product.quantity}} {{product.priceCurrency}}</b>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4"></td>
+        <td>
+            <b> {{totalPrice}}</b>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" class="center">
+            <button class="btn btn-primary" [routerLink]="['/checkout']">Checkout</button>
+        </td>
+    </tr>
+</table>
+<ng-template #noCart>
+    <div class="no-cart">
+        Your cart is empty start adding by <a [routerLink]="['/home/products']">here</a>
+    </div>
+</ng-template>
