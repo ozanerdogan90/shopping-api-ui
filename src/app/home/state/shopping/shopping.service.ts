@@ -20,7 +20,7 @@ export class ShoppingService {
     }
 
     update(newProduct: Product) {
-        this.store.setState((state: ShoppingState) => {
+        this.store.update((state: ShoppingState) => {
             let cart: ShoppingCart = { ...state.shoppingCart };
             if (!cart || !cart.id) {
                 cart = Object.assign({}, this.create());
@@ -39,7 +39,7 @@ export class ShoppingService {
     }
 
     deleteProduct(product: Product) {
-        this.store.setState((state: ShoppingState) => {
+        this.store.update((state: ShoppingState) => {
             const cart: ShoppingCart = { ...state.shoppingCart };
             if (!cart) {
                 return;

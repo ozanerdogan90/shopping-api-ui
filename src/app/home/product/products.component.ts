@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
     }
 
     addProduct(product: any) {
-        this.shoppingCartService.update({ id: product.id, name: product.name, quantity: 1 });
+        this.shoppingCartService.update({ id: product.id, quantity: 1 });
     }
 }
 
