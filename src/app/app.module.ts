@@ -14,11 +14,12 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { AuthModule } from './auth/auth.module';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
-import { RouterModule } from '@angular/router';
+import { NavBarComponent } from './home/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
