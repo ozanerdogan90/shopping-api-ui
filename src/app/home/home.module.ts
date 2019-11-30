@@ -10,8 +10,9 @@ import { ShoppingQuery } from './state/shopping.query';
 import { HomeRoutingModule } from './home-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BannerComponent } from './banner/banner.component';
 
-export const COMPONENTS = [HomeComponent, NavBarComponent];
+export const COMPONENTS = [HomeComponent, NavBarComponent, BannerComponent];
 
 @NgModule({
     imports: [CommonModule,
