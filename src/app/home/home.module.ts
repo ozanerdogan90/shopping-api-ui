@@ -12,8 +12,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './banner/banner.component';
 import { CartComponent } from './cart/cart.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
 
-export const COMPONENTS = [HomeComponent, NavBarComponent, BannerComponent, CartComponent];
+export const COMPONENTS = [HomeComponent, NavBarComponent, BannerComponent, CartComponent, ContactDetailsComponent];
 
 @NgModule({
     imports: [CommonModule,

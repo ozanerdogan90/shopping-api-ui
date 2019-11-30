@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth/auth-guard.service';
 import { CartComponent } from './home/cart/cart.component';
+import { ContactDetailsComponent } from './home/contact-details/contact-details.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
       {
         path: 'cart',
         component: CartComponent
+      },
+      {
+        path: 'contact',
+        component: ContactDetailsComponent
       }]
   },
   { path: '**', redirectTo: '/home' }
