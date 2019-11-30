@@ -1,0 +1,8 @@
+<div class="card" *ngIf='(sellers$ | async) as sellers'>
+    <div class="card-body">
+        <h5 class="card-title">Sellers</h5>
+        <div *ngFor='let seller of sellers'>
+            <a [routerLink]="'[/home/products],seller'" class="card-text">{{seller}}</a>
+        </div>
+    </div>
+</div>

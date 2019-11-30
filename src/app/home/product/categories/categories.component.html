@@ -1,0 +1,8 @@
+<div class="card" *ngIf='(categories$ | async) as categories'>
+    <div class="card-body">
+        <h5 class="card-title">Categories</h5>
+        <div *ngFor='let category of categories'>
+            <a [routerLink]="'[/home/products],category'" class="card-text">{{category}}</a>
+        </div>
+    </div>
+</div>

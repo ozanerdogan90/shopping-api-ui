@@ -1,0 +1,10 @@
+<div class="card" *ngIf='(cargoOptions$ | async) as options'>
+    <div class="card-body">
+        <h5 class="card-title">Cargo Options</h5>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor='let option of options'>
+                <a [routerLink]="'[/home/products],option'" class="card-text">{{option}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="card" *ngIf='(reviews$ | async) as reviews'>
+    <div class="card-body">
+        <h5 class="card-title">Reviews</h5>
+        <div *ngFor='let review of reviews'>
+            <a [routerLink]="'[/home/products],review'" class="card-text">{{review}}</a>
+        </div>
+    </div>
+</div>

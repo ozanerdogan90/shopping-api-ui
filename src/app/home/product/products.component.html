@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-3">
+        <app-cargo-options></app-cargo-options>
+        <app-categories></app-categories>
+        <app-review></app-review>
+        <app-seller-filter></app-seller-filter>
+    </div>
+    <div class="col-md-9" *ngIf='(products$ | async) as products'>
+        <div *ngFor='let product of products'>
+            <app-product-card [product]='product'></app-product-card>
+        </div>
+    </div>
+</div>

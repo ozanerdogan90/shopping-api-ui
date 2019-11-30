@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './banner/banner.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { ProductModule } from './product/product.module';
 
 export const COMPONENTS = [HomeComponent, NavBarComponent, BannerComponent, CartComponent, ContactDetailsComponent];
 
@@ -23,7 +24,9 @@ export const COMPONENTS = [HomeComponent, NavBarComponent, BannerComponent, Cart
         BrowserModule,
         FormsModule,
         BrowserAnimationsModule,
-        ReactiveFormsModule],
+        ReactiveFormsModule,
+        ProductModule
+    ],
     declarations: COMPONENTS,
     exports: COMPONENTS
 })
