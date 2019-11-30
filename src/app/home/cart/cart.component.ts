@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ShoppingQuery } from '../state/shopping.query';
+import { ShoppingQuery } from '../state/shopping/shopping.query';
 import { map } from 'rxjs/operators';
 
 @Component({
