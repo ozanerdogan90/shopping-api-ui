@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 @Component({
     templateUrl: 'nav-bar.component.html',
     selector: 'app-nav-bar',
-    changeDetectionStrategy: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavBarComponent {
     /**

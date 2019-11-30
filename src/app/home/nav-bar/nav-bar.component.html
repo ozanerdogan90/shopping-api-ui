@@ -23,7 +23,7 @@
                         </button>
                     </div>
                 </div>
-                <a class="btn btn-success btn-sm ml-3" [routerLink]="['/cart']">
+                <a class="btn btn-success btn-sm ml-3" [routerLink]="['/home/cart']">
                     <i class="fa fa-shopping-cart"></i> Cart
                     <span *ngIf="!!(productCount$ | async) as count" class="badge badge-light">{{count}}</span>
                 </a>

@@ -10,8 +10,6 @@ export interface Product {
     id: string;
     name: string;
     quantity: number;
-    amount: number;
-    currency: string;
 }
 
 export interface ShoppingState extends EntityState<ShoppingCart> {

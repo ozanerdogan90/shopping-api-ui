@@ -1,0 +1,11 @@
+<div class="cart-container">
+    <ng-template *ngIf='(cart$ | async) as cart;else :noCart'>
+    </ng-template>
+    <ng-template #noCart>
+        <div>
+            Your cart is empty start adding by <a [routerLink]="['/home/products']">here</a>
+        </div>
+    </ng-template>
+
+
+</div>

@@ -11,8 +11,9 @@ import { HomeRoutingModule } from './home-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './banner/banner.component';
+import { CartComponent } from './cart/cart.component';
 
-export const COMPONENTS = [HomeComponent, NavBarComponent, BannerComponent];
+export const COMPONENTS = [HomeComponent, NavBarComponent, BannerComponent, CartComponent];
 
 @NgModule({
     imports: [CommonModule,
