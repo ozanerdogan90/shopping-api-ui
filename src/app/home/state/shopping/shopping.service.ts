@@ -7,42 +7,45 @@ export class ShoppingService {
 
     constructor(
         private store: ShoppingStore,
-    ) { }
+    ) {
+    }
 
     create() {
         const cart = {} as ShoppingCart;
         cart.id = uuid();
         cart.products = [];
+        localStorage.setItem('shoppingCart', JSON.stringify(cart));
         this.store.update({ shoppingCart: cart });
     }
 
     update(newProduct: Product) {
-        this.store.update((state: ShoppingState) => {
+        this.store.setState((state: ShoppingState) => {
             const cart: ShoppingCart = { ...state.shoppingCart };
-            if (!cart) {
-                return;
+            if (!cart || !cart.id) {
+                this.create();
             }
 
             let productToUpdate: Product = cart.products.find(_product => _product.id === newProduct.id);
             if (productToUpdate) {
                 productToUpdate.quantity += newProduct.quantity;
             } else {
-                productToUpdate = newProduct;
+                cart.products = [...cart.products, newProduct];
             }
 
-            cart.products.push(productToUpdate);
+            localStorage.setItem('shoppingCart', JSON.stringify(cart));
             return { ...state, shoppingCart: cart };
         });
     }
 
     deleteProduct(product: Product) {
-        this.store.update((state: ShoppingState) => {
+        this.store.setState((state: ShoppingState) => {
             const cart: ShoppingCart = { ...state.shoppingCart };
             if (!cart) {
                 return;
             }
 
             cart.products = cart.products.filter(prd => prd.id !== product.id);
+            localStorage.setItem('shoppingCart', JSON.stringify(cart));
             return { shoppingCart: cart };
         });
     }

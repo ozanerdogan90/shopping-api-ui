@@ -1,13 +1,12 @@
-import { QueryEntity } from '@datorama/akita';
+import { Query } from '@datorama/akita';
 import { Injectable } from '@angular/core';
-import { ShoppingState, ShoppingStore, ShoppingCart } from './shopping.store';
-import { map } from 'rxjs/operators';
+import { ShoppingState, ShoppingStore } from './shopping.store';
 
 @Injectable()
-export class ShoppingQuery extends QueryEntity<ShoppingState, ShoppingCart>  {
+export class ShoppingQuery extends Query<ShoppingState>  {
 
+  products$ = this.select((state: ShoppingState) => state.shoppingCart.products || []);
   cart$ = this.select(state => state.shoppingCart);
-  products$ = this.select(state => state.shoppingCart ? state.shoppingCart.products : []);
 
   constructor(protected store: ShoppingStore) {
     super(store);

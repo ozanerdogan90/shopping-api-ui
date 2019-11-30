@@ -1,4 +1,4 @@
-import { Store, StoreConfig, EntityState, EntityStore } from '@datorama/akita';
+import { Store, StoreConfig } from '@datorama/akita';
 import { Injectable } from '@angular/core';
 
 export interface ShoppingCart {
@@ -12,18 +12,17 @@ export interface Product {
     quantity: number;
 }
 
-export interface ShoppingState extends EntityState<ShoppingCart> {
+export interface ShoppingState {
     shoppingCart: ShoppingCart;
 }
 
 export const initialState: ShoppingState = {
-    shoppingCart: JSON.parse(localStorage.getItem('shoppingCart')) || null
+    shoppingCart: JSON.parse(localStorage.getItem('shoppingCart')) || {}
 };
-
 
 @Injectable()
 @StoreConfig({ name: 'shopping-cart' })
-export class ShoppingStore extends EntityStore<ShoppingState, ShoppingCart> {
+export class ShoppingStore extends Store<ShoppingState> {
     constructor() {
         super(initialState);
     }

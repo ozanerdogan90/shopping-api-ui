@@ -2,9 +2,9 @@
     <div class="card-body center">
         <img src="../../../../assets/no-image.jpg" width="250px">
         <h5 class="card-title center">{{product.name}}</h5>
-        <h6 class="pull-left"> {{product.seller}}</h6>
-        <h6 class="pull-left pl-30px"> {{product.price}} {{product.priceCurrency}}</h6>
+        <h6 class="pull-left">{{product.seller}}</h6>
+        <h6 class="pull-left pl-30px">{{product.price}} {{product.priceCurrency}}</h6>
         <div class="clearfix"></div>
-        <button type="button" class="btn btn-link">See Details</button>
+        <button type="button" class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
     </div>
 </div>

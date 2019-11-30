@@ -1,5 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ProductService } from './state/product.service';
+import { Product } from './state/product.store';
+import { ShoppingService } from '../state/shopping/shopping.service';
 
 @Component({
     selector: 'app-products',
@@ -7,9 +9,14 @@ import { ProductService } from './state/product.service';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductsComponent implements OnInit {
-    constructor(private productService: ProductService) { }
+    constructor(private productService: ProductService,
+        private shoppingCartService: ShoppingService) { }
     products$ = this.productService.getAllProducts();
     ngOnInit(): void {
+    }
+
+    addProduct(product: any) {
+        this.shoppingCartService.update({ id: product.id, name: product.name, quantity: 1 });
     }
 }
 
